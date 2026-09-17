@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+
+    <body>
+
+        <header>
+            <button>Tab 1</button>
+            <button>Tab 2</button>
+            <button>Tab 3</button>
+            <button>+</button>
+        </header>
+
+        <div class="tab">
+            <div class="background">
+                <button class="app" onclick="openNotepad()">
+                    <img src="images/notepad_icon.png" alt="null" />
+                    <p>Notepad</p>
+                </button>
+                <button class="app" onclick="openMusicPlayer()">
+                    <img src="null" alt="null" />
+                    <p>Music Player</p>
+                </button>
+                <button class="app">
+                    <img src="null" alt="null" />
+                    <p>title of app3</p>
+                </button>
+                <button class="app">
+                    <img src="null" alt="null" />
+                    <p>title of app4</p>
+                </button>
+                <button class="app">
+                    <img src="null" alt="null" />
+                    <p>title of app5</p>
+                </button>
+                <button class="app">
+                    <img src="null" alt="null" />
+                    <p>title of app6</p>
+                </button>
+                <button class="app">
+                    <img src="null" alt="null" />
+                    <p>title of app7</p>
+                </button>
+            </div>
+            <div class="taskbar">
+                <button class="startMenu">
+                    <img class="smallIcon" src="images/missing_image.png" alt="heart" />
+                    <span>start</span>
+                </button>
+                <div class="timeBox">
+                    <button>
+                        <img class="smallIcon" src="images/missing_image.png" alt="sound" />
+                    </button>
+                    <div id="timeThing" class="time">12:31 PM</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="notepadWindow">
+            <div class="topBar">
+                <div class="windowName">
+                    <img class="smallIcon" src="images/notepad_icon.png" alt="notepad icon" />
+                    <span>untitled - Notepad</span>
+                </div>
+                <div class="windowButtons">
+                    <button class="barButtons">_</button>
+                    <button class="barButtons">□</button>
+                    <button class="barButtons" onclick="closeNotepad()">x</button>
+                </div>
+            </div>
+            <div class="windowContent">
+                <div class="menuBar">
+                    <button>File</button>
+                    <button>Edit</button>
+                    <button>Format</button>
+                    <button>Help</button>
+                </div>
+                <div class="innerContent">
+                    <textarea id="notepadText" placeholder="enter text here... if you want" ></textarea>
+                </div>
+            </div>
+            <div class="corner">
+                <div class="cornerImg"></div>
+            </div>
+        </div>
+
+        <div class="window" id="musicplayerWindow">
+            <div class="topBar">
+                <div class="windowName">
+                    <img class="smallIcon" src="null" alt="music player icon" />
+                    <span>Music Player</span>
+                </div>
+                <div class="windowButtons">
+                    <button class="barButtons">_</button>
+                    <button class="barButtons">□</button>
+                    <button class="barButtons" onclick="closeMusicPlayer()">x</button>
+                </div>
+            </div>
+            <div class="windowContent">
+                <div class="menuBar">
+                    <button>File</button>
+                    <button>Playlist</button>
+                    <button>Effects</button>
+                    <button>Widgets</button>
+                    <button>Help</button>
+                </div>
+                <div class="innerContent">
+                    <div class="mus_player">
+                        <div class="mus_decorBar"></div>
+                        <div class="mus_center">
+                            <div class="mus_darkSection">
+                                <span id="mus_track">track</span>
+                                <span id="mus_author">author</span>
+                                <div class="mus_progressBar">
+                                    <span id="mus_elapsed">--:--</span>
+                                    <input type="range" min="1" max="100" value="0" id="seek_slider" onchange="seekTo()">
+                                    <span id="mus_duration">--:--</span>
+                                </div>
+                            </div>
+                            <div class="mus_buttonArray">
+                                <div id="toggle_button_container2">
+                                    <button id="loop_btn" onclick="loop_state_toggle()">↻</button> <!--  ↺↻ ⟲⟳ ⥀⥁ ⟷ ⟺-->
+                                </div>
+                                <button onclick="prevTrack()">⏮</button>
+                                <div id="toggle_button_container1">
+                                    <button id="playpause_btn" onclick="playpauseTrack()">▶</button> <!-- ▶ ❚❚ -->
+                                </div>
+                                <button onclick="nextTrack()">⏭</button>
+                                <div id="toggle_button_container3">
+                                    <button id="shuffle_btn" onclick="shuffle_state_toggle()">⤮</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mus_volume">
+                            <div class="mus_slider">
+                                <input id="volume_slider" type="range" min="1" max="100" value="75" onchange="setVolume()">
+                            </div>
+                            <div class="mus_volumeButton">
+                                <div id="toggle_button_container4">
+                                    <button id="volume_btn" onclick="toggle_mute_state()">🔊</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playlist">
+                        <div class="mus_playlist" id="mus_playlist">
+                            <!-- <span>author - track</span> -->
+                        </div>
+                        <div class="mus_playlistNav">
+                            <button>▲</button>
+                            <button>▼</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="corner">
+                <div class="cornerImg"></div>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+
+    </body>
+
+</html>

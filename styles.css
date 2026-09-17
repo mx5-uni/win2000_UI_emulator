@@ -1,0 +1,569 @@
+:root {
+    --desktop-color: #3a6ea5;
+    --taskbar-color: #d4d0c8;
+    --light-edge: #fefefe;
+    --dark-edge: #404040;
+}
+
+html {
+    /*background-color: black;*/
+
+    /*
+    background #3a6ea5
+    taskbar #d4d0c8
+    dark #404040
+    light #fefefe
+    */
+
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+body {
+    user-select: none;
+    
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 6 horizontal columns */
+    gap: 10px;
+}
+
+button:focus-visible {
+    outline-style: dashed;
+    outline-color: #a8a8a8;
+    outline-offset: -5px;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+
+
+.tab {
+    padding: none;
+}
+
+.background {
+    background-color: var(--desktop-color);
+
+    display: grid;
+    /*grid-template-columns: repeat(8, 1fr);*/
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+}
+.background button:hover {
+    background-color: #ffffff3b;
+}
+.background button:active {
+    background-color: #ffffff54;
+}
+
+.app {
+    color: white;
+
+    width: 100px;
+    height: 100px;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    display:flexbox;
+    align-items: center;
+    justify-content: center;
+}
+.app img {
+    width: 32px;
+    height: 32px;
+}
+
+.taskbar {
+    background-color: var(--taskbar-color);
+
+    display: grid;
+    grid-template-columns: repeat(11, auto);
+    gap: 10px;
+
+    padding: 5px;
+
+    height: 35px;
+
+    border-top: 2px solid black;
+    border-top-color: var(--light-edge);
+}
+.startMenu {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0px;
+
+    height: 35px;
+
+    background-color: var(--taskbar-color);
+    
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+
+    align-content: center;
+    justify-items: center;
+}
+.startMenu:active {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+.startMenu:focus {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+
+.timeBox {
+    grid-column: 11;
+
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+
+    height: 31px;
+
+    border: 2px solid black;
+
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+
+    align-content: center;
+}
+.timeBox button {
+    border: none;
+    background-color: transparent;
+}
+.timeBox button:active {
+    border: none;
+    background-color: #ffffff7c;
+}
+
+.smallIcon {
+    width: 15px;
+    height: 15px;
+}
+
+
+
+
+
+.window {
+    position: absolute;
+
+    visibility: hidden;
+
+    top: 20%;
+    left: 30%;
+
+    width: 500px;
+    height: 500px;
+
+    background-color: var(--taskbar-color);
+
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    gap: 0px;
+
+    border: 2px solid black;
+
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+}
+.topBar {
+    cursor: move;
+
+    background: linear-gradient(90deg, #0a246a, #a6caf0);
+
+    height: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 3px;
+
+    border: 2px solid var(--taskbar-color);
+}
+.windowName {
+    color: #fefefe;
+}
+.windowButtons {
+    grid-column: 3;
+
+    padding-right: 2px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: right;
+}
+.barButtons {
+    background-color: var(--taskbar-color);
+    
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+
+    width: 18px;
+    height: 16px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.barButtons:active {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+
+.windowContent {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    gap: 0px;
+
+    padding: 2px;
+
+    box-sizing: border-box;
+    height: 100%;
+}
+.menuBar {
+    display: inline-flex;
+    justify-content: left;
+    align-items: center;
+}
+.menuBar button {
+    background-color: var(--taskbar-color);
+    border-color: transparent;
+}
+.menuBar button:active {
+    background-color: #ffffff7c;
+    border-color: transparent;
+}
+.innerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.innerContent textarea {
+    resize: none;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    border-width: 2px;
+
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+.corner {
+    align-self: end;
+
+    height: 20px;
+    background-color: transparent;
+    
+    display: inline-flex;
+    justify-content: right;
+    align-items: center;
+
+    padding-right: 2px;
+}
+.cornerImg {
+    cursor:se-resize;
+
+    width: 15px;
+    height: 15px;
+
+    background: linear-gradient(
+    135deg,
+    var(--taskbar-color) 0%,     var(--taskbar-color) 50%,    /* Large Grey (50%) */
+    var(--light-edge) 50%,    var(--light-edge) 58.33%, /* White Stripe 1 */
+    var(--dark-edge) 58.33%, var(--dark-edge) 66.67%, /* Black Stripe 1 */
+    var(--light-edge) 66.67%, var(--light-edge) 75%,    /* White Stripe 2 */
+    var(--dark-edge) 75%,    var(--dark-edge) 83.33%, /* Black Stripe 2 */
+    var(--light-edge) 83.33%, var(--light-edge) 91.67%, /* White Stripe 3 */
+    var(--dark-edge) 91.67%, var(--dark-edge) 100%    /* Black Stripe 3 */
+  );
+}
+
+
+
+.mus_player {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    gap: 0px;
+}
+.mus_decorBar {
+    width: 30px;
+
+    border: 2px solid black;
+
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+}
+.mus_volume {
+    width: 30px;
+
+    padding-right: 2px;
+
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    gap: 0px;
+
+    justify-content: center;
+}
+.mus_slider {
+    width: 30px;
+
+    border: 2px solid black;
+
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+}
+.mus_slider input {
+    rotate: 270deg;
+
+    position: relative;
+    left: -25px;
+    top: 30px;
+
+    appearance: none;
+    width: 75px;
+    height: 20px;
+    background: transparent;
+}
+.mus_slider input::-webkit-slider-runnable-track {
+    height: 20px;
+    background: linear-gradient(
+        to top right,
+        transparent 49%,
+        #888 50%
+    );
+}
+.mus_slider input::-moz-range-track {
+    height: 20px;
+    background: linear-gradient(
+        to top right,
+        transparent 49%,
+        #888 50%
+    );
+}
+.mus_slider input::-webkit-slider-thumb {
+    appearance: none;
+
+    width: 12px;
+    height: 20px;
+
+    background: var(--taskbar-color);
+
+    border: 2px solid black;
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--dark-edge);
+}
+.mus_slider input::-moz-range-thumb {
+    width: 12px;
+    height: 20px;
+
+    background: var(--taskbar-color);
+
+    border: 2px solid black;
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--dark-edge);
+}
+
+.mus_volumeButton button {
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+
+    background-color: var(--taskbar-color);
+
+    width: 100%;
+    height: 25px;
+}
+.mus_volumeButton button:active {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+.mus_volumeButton .pushed_in_button button {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+.mus_center {
+    display: grid;
+    grid-template-rows: min-content min-content min-content;
+    gap: 0px;
+}
+.mus_darkSection {
+    background: black;
+    color: white;
+
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    align-items: center;
+    justify-items: center;
+}
+.mus_progressBar {
+
+}
+.mus_progressBar input {
+    appearance: none;
+    width: 150px;
+    height: 15px;
+    background: transparent;
+}
+.mus_progressBar input::-webkit-slider-runnable-track {
+    height: 2px;
+    color: white;
+    background: linear-gradient(white);
+}
+.mus_progressBar input::-moz-range-track {
+    height: 2px;
+    color: white;
+    background: linear-gradient(white);
+}
+.mus_progressBar input::-webkit-slider-thumb {
+    appearance: none;
+
+    position: relative;
+    top: -4px;
+
+    width: 4px;
+    height: 10px;
+
+    background: white;
+}
+.mus_progressBar input::-moz-range-thumb {
+    appearance: none;
+
+    position: relative;
+    top: -4px;
+
+    width: 4px;
+    height: 10px;
+
+    background: white;
+}
+
+.mus_buttonArray {
+    background-color: var(--taskbar-color);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: monospace;
+
+    gap: 2px;
+}
+.mus_buttonArray button {
+    width: 32px;
+    height: 25px;
+
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+
+    background-color: var(--taskbar-color);
+}
+.mus_buttonArray button:active {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+.toggled_button {
+
+}
+.toggled_button button {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+
+    background-color: var(--taskbar-color);
+}
+.toggled_button button:active {
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+}
+
+
+
+.playlist {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 2px;
+
+    box-sizing: border-box;
+    height: 100%;
+}
+.mus_playlist {
+    padding-left: 2px;
+    
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    border: 2px solid black;
+
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
+.mus_playlistNav {
+
+}
+.mus_playlistNav button {
+    border-left-color: var(--light-edge);
+    border-top-color: var(--light-edge);
+    border-right-color: var(--dark-edge);
+    border-bottom-color: var(--dark-edge);
+
+    background-color: var(--taskbar-color);
+}
+.mus_playlistNav button:active {
+    border-left-color: var(--dark-edge);
+    border-top-color: var(--dark-edge);
+    border-right-color: var(--light-edge);
+    border-bottom-color: var(--light-edge);
+}
